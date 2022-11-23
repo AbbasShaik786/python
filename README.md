@@ -1,7 +1,6 @@
 - 👋 Hi, I’m Abbas Shaik
 - 👀 I’m interested in Coding
 - 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
 - 📫 for reach me email: shaikabbas919@gmail.com
 
 <!---
