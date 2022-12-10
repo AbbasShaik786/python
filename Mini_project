@@ -1,0 +1,62 @@
+class Library:
+    def __init__(self, list, name):
+        self.Bookslist = list        # Display, Lend, Add, Return
+        self.name = name
+        self.lenddict = {}
+
+    def Display(self):
+        print("We have following Books: ")
+        for b in self.Bookslist:
+            print(b)
+
+    def Lend(self, user, Book):
+        if Book not in self.lenddict.keys():
+            self.lenddict.update({Book:user})
+            return "Data Base Has been Updated. You can take Book now :)"
+        else:
+           return f"Book was already taken by {self.lenddict[Book]}"
+
+    def Add(self, Book):
+        self.Bookslist.append(Book)
+
+    def Return(self, Book):
+        self.lenddict.pop(Book)     # Pop or Remove ?
+        pass
+
+
+if __name__ == '__main__':
+    abbas = Library(["Python", "Artificial Intelligence", "Machine Learning",
+                    "Java Basics"], "Abbas")
+    while True:
+        print(f"Welcome to {abbas.name} Library, Please Enter your choice")
+        print("1.Display Books")
+        print("2.Lend a Book")
+        print("3.Add Book")
+        print("4.Return The Book")
+
+        ui = int(input())
+
+        if ui == 1:
+            abbas.Display()
+            break
+        elif ui == 2:
+            Book = input("Enter Book name which you want to lend:   ")
+            if Book in abbas.Bookslist:
+                user = input("Enter Your Name:  ")
+                print(abbas.Lend(user, Book))
+            else:
+                print("Book is not available")
+                break
+            break
+        elif ui == 3:
+            Book = input("Enter the Book name you want to add:  ")
+            abbas.Add(Book)
+            print(f"The {Book} Book has been added")
+
+        elif ui == 4:
+            Book  = input("Enter the Book name you want to return:  ")
+            print(abbas.Return(Book))
+
+        else:
+            print("Please select a valid option")
+            break
